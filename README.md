@@ -32,4 +32,4 @@ Certifique-se de ter o **Node.js** (versão 18 ou superior) e o **Git** instalad
 
 1. **Clonar o repositório:**
    ```bash
-   git clone [https://github.com/seu-usuario/nome-do-repositorio.git]
+   git clone [https://github.com/davi-morais2008/tic-tac-toe.git]
