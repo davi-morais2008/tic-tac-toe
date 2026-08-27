@@ -1,7 +1,9 @@
+import { useState } from "react"
 
-function Square () {
+function Square ({valor, aoClicarSquare}) {
+
     return(
-        <button className="square">X</button>
+        <button className="square" onClick={aoClicarSquare}>{valor}</button>
     )
 }
 
