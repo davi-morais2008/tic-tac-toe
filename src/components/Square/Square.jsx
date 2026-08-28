@@ -1,9 +1,9 @@
-import { useState } from "react"
+import styles from './Square.module.css'
 
 function Square ({valor, aoClicarSquare}) {
 
     return(
-        <button className="square" onClick={aoClicarSquare}>{valor}</button>
+        <button className={styles.square} onClick={aoClicarSquare}>{valor}</button>
     )
 }
 

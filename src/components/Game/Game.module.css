@@ -1,0 +1,261 @@
+.game {
+  /* Layout */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  /* Dimensões */
+  min-height: 100vh;
+  padding: 2rem;
+
+  /* Cores */
+  background-color: var(--bg-primary, #f8f9fa);
+  color: var(--text-primary, #212529);
+
+  /* Transição do tema */
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+
+/* ==========================================================================
+   ELEMENTO: .game__title
+   ========================================================================== */
+
+.game__title {
+  margin: 0 0 0.5rem;
+
+  font-size: 2.2rem;
+  font-weight: 700;
+  text-align: center;
+
+  color: inherit;
+}
+
+
+/* ==========================================================================
+   ELEMENTO: .game__status
+   ========================================================================== */
+
+.game__status {
+  margin: 0 0 1rem;
+
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-align: center;
+
+  color: var(--text-secondary, #6c757d);
+}
+
+
+/* ==========================================================================
+   ELEMENTO BASE: .game__button
+   ========================================================================== */
+
+.game__button {
+  /* Dimensões */
+  width: 220px;
+  min-height: 46px;
+  padding: 0.75rem 1.5rem;
+  margin: 0.4rem 0;
+
+  /* Tipografia */
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.2;
+  text-align: center;
+
+  /* Cores */
+  background-color: var(--accent-color, #0d6efd);
+  color: #ffffff;
+
+  /* Borda */
+  border: 2px solid transparent;
+  border-radius: 10px;
+
+  /* Cursor */
+  cursor: pointer;
+
+  /* Sombra */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+
+  /* Transições */
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    filter 0.2s ease;
+}
+
+
+/* ==========================================================================
+   HOVER: .game__button
+   ========================================================================== */
+
+.game__button:hover {
+  filter: brightness(1.08);
+  transform: translateY(-2px);
+
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.16);
+}
+
+
+/* ==========================================================================
+   ACTIVE: .game__button
+   ========================================================================== */
+
+.game__button:active {
+  transform: translateY(0);
+
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.12);
+}
+
+
+/* ==========================================================================
+   FOCUS: .game__button
+   ========================================================================== */
+
+.game__button:focus-visible {
+  outline: 3px solid rgba(13, 110, 253, 0.35);
+  outline-offset: 3px;
+}
+
+
+/* ==========================================================================
+   MODIFICADOR: .game__button--secondary
+   Botões: Resetar Placar / Reiniciar Partida
+   ========================================================================== */
+
+.game__button--secondary {
+  background-color: var(--bg-card, #ffffff);
+  color: var(--text-primary, #212529);
+
+  border-color: var(--border-color, #dee2e6);
+
+  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.08);
+}
+
+
+/* Hover dos botões secundários */
+
+.game__button--secondary:hover {
+  background-color: var(--bg-card-hover, #e9ecef);
+  border-color: #adb5bd;
+
+  filter: none;
+}
+
+
+/* ==========================================================================
+   MODIFICADOR: .game__button--theme
+   Botão: Alternar Tema
+   ========================================================================== */
+
+.game__button--theme {
+  margin-bottom: 1.5rem;
+
+  background-color: transparent;
+  color: var(--text-primary, #212529);
+
+  border-color: var(--border-color, #dee2e6);
+
+  box-shadow: none;
+}
+
+
+/* Hover do botão de tema */
+
+.game__button--theme:hover {
+  background-color: var(--bg-card-hover, #e9ecef);
+  border-color: #adb5bd;
+
+  filter: none;
+}
+
+
+/* ==========================================================================
+   TEMA ESCURO: .game--dark
+   ========================================================================== */
+
+.game--dark {
+  background-color: #121212;
+  color: #f8f9fa;
+}
+
+
+/* Status no tema escuro */
+
+.game--dark .game__status {
+  color: #adb5bd;
+}
+
+
+/* ==========================================================================
+   BOTÃO SECUNDÁRIO NO TEMA ESCURO
+   ========================================================================== */
+
+.game--dark .game__button--secondary {
+  background-color: #1e1e1e;
+  color: #f8f9fa;
+
+  border-color: #383838;
+
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.35);
+}
+
+
+/* Hover */
+
+.game--dark .game__button--secondary:hover {
+  background-color: #2c2c2c;
+  border-color: #4a4a4a;
+}
+
+
+/* ==========================================================================
+   BOTÃO DE TEMA NO TEMA ESCURO
+   ========================================================================== */
+
+.game--dark .game__button--theme {
+  background-color: #1e1e1e;
+  color: #f8f9fa;
+
+  border-color: #383838;
+}
+
+
+/* Hover */
+
+.game--dark .game__button--theme:hover {
+  background-color: #2c2c2c;
+  border-color: #4a4a4a;
+}
+
+
+/* ==========================================================================
+   RESPONSIVIDADE
+   ========================================================================== */
+
+@media (max-width: 480px) {
+  .game {
+    padding: 1.5rem 1rem;
+  }
+
+  .game__title {
+    font-size: 1.8rem;
+  }
+
+  .game__status {
+    font-size: 1rem;
+  }
+
+  .game__button {
+    width: 100%;
+    max-width: 280px;
+  }
+}

@@ -1,0 +1,36 @@
+.square {
+  /* Dimensões do botão mantendo proporções quadradas */
+  width: 80px;
+  height: 80px;
+  
+  /* Tipografia para destacar o X ou O */
+  font-size: 2rem;
+  font-weight: bold;
+  color: #2c3e50;
+  
+  /* Reset de bordas e fundo */
+  background-color: #ffffff;
+  border: 2px solid #34495e;
+  border-radius: 8px;
+  
+  /* Centralização do símbolo (X/O) */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  /* Feedback visual e acessibilidade */
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Efeito ao passar o mouse */
+.square:hover {
+  background-color: #ecf0f1;
+  transform: scale(1.03);
+}
+
+/* Estado focado para acessibilidade via teclado */
+.square:focus {
+  outline: 3px solid #3498db;
+  outline-offset: 2px;
+}

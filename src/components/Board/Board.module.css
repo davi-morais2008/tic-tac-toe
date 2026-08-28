@@ -1,0 +1,12 @@
+.board {
+  display: flex;
+  flex-direction: column;
+  gap: 8px; /* Espaçamento entre as linhas */
+  align-items: center;
+}
+
+/* Elemento BEM: Linha do tabuleiro contendo 3 quadrados */
+.linha {
+  display: flex;
+  gap: 8px; /* Espaçamento entre os botões na mesma linha */
+}
