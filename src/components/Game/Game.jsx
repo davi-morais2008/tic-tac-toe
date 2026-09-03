@@ -121,24 +121,9 @@ function Game() {
                 {status}
             </p>
 
-            <button
-                className={`${styles.game__button} ${styles['game__button--secondary']}`}
-                onClick={resetarPlacar}
-            >
-                Resetar Placar
-            </button>
-
-            <Board
-                square={square}
-                aoClicarSquare={Clicar}
-            />
-
-            <button
-                className={`${styles.game__button} ${styles['game__button--secondary']}`}
-                onClick={reiniciarPartida}
-            >
-                Reiniciar Partida
-            </button>
+            <button className={`${styles.game__button} ${styles['game__button--secondary']}`} onClick={resetarPlacar}>Resetar Placar</button> 
+            <Board square={square} aoClicarSquare={Clicar}/>
+            <button className={`${styles.game__button} ${styles['game__button--secondary']}`} onClick={reiniciarPartida}>Reiniciar Partida</button>
 
         </main>
     );
