@@ -49,6 +49,7 @@ function Game() {
 
 
     const vencedor = definirVencedor(square)
+    // const vencedorJogo = placarX === 3 ? 'X' : placarO === 3 ? 'O' : null
     // Usando every para verificar se todas as posicoes do square foi preenchida
     const empate = square.every((posicao) => posicao !== '') && !vencedor
     let status;
@@ -71,6 +72,7 @@ function Game() {
         setPlacarX(0)
         setPlacarO(0)
     }
+
 
     function Clicar(i) {
 
@@ -104,13 +106,14 @@ function Game() {
     return (
         <main className={`${styles.game} ${tema === 'dark' ? styles['game--dark'] : ''}`}>
             <h2 className={styles.game__title}>Jogo da Velha</h2>
+            {/* <h3 className={styles.game__subtitle}>Melhor de 5 - O jogador que ganhar 3 rodadas primeiro, vence o jogo!</h3> */}
 
             {/* Botão que dispara a função alternarTema */}
             <button
                 className={`${styles.game__button} ${styles['game__button--theme']}`}
                 onClick={alternarTema}
             >
-                Alternar para modo {tema === 'light' ? 'Escuro' : 'Claro'}
+                Modo {tema === 'light' ? 'Escuro' : 'Claro'}
             </button>
 
             <p className={styles.game__status}>
