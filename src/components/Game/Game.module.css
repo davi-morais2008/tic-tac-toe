@@ -2,43 +2,22 @@
 
 .game {
 
-  /* ==========================================================
-     LAYOUT
-     ========================================================== */
-
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
   min-height: 100vh;
-  
-  /* ==========================================================
-     FUNDO
-     ========================================================== */
-
   background: linear-gradient(
     135deg,
     var(--bg-primary),
     var(--bg-secondary),
     var(--bg-tertiary)
   );
-
   color: var(--text-primary);
-
-  /* ==========================================================
-     TRANSIÇÃO DO TEMA
-     ========================================================== */
-
   transition:
     background 0.3s ease,
     color 0.3s ease;
 }
-
-
-/* ==========================================================
-   TÍTULO
-   ========================================================== */
 
 .game__title {
   margin: 0 0 0.5rem;
@@ -54,21 +33,12 @@
 
 .game__subtitle {
   margin: 0 0 0.5rem;
-
   font-size: 1.5rem;
   font-weight: 700;
   text-align: center;
-
   color: var(--accent-color);
-
   text-shadow: 0 2px 4px var(--shadow-color);
 }
-
-
-
-/* ==========================================================
-   STATUS
-   ========================================================== */
 
 .game__status {
   margin: 0 0 1rem;
@@ -79,11 +49,6 @@
 
   color: var(--text-secondary);
 }
-
-
-/* ==========================================================
-   BOTÃO BASE
-   ========================================================== */
 
 .game__button {
   width: 220px;
@@ -116,11 +81,6 @@
     box-shadow 0.2s ease;
 }
 
-
-/* ==========================================================
-   HOVER
-   ========================================================== */
-
 .game__button:hover {
   background-color: var(--accent-hover);
 
@@ -129,82 +89,44 @@
   box-shadow: 0 7px 16px var(--shadow-color);
 }
 
-
-/* ==========================================================
-   ACTIVE
-   ========================================================== */
-
 .game__button:active {
   transform: translateY(0);
-
   box-shadow: 0 3px 7px var(--shadow-color);
 }
-
-
-/* ==========================================================
-   FOCUS
-   ========================================================== */
 
 .game__button:focus-visible {
   outline: 3px solid var(--accent-light);
   outline-offset: 3px;
 }
 
-
-/* ==========================================================
-   BOTÕES SECUNDÁRIOS
-   Resetar Placar / Reiniciar Partida
-   ========================================================== */
-
 .game__button--secondary {
   background-color: var(--bg-card);
-
   color: var(--accent-color);
-
   border-color: var(--border-color);
-
   box-shadow: 0 3px 8px var(--shadow-color);
 }
 
 
 .game__button--secondary:hover {
   background-color: var(--bg-card-hover);
-
   color: var(--accent-hover);
-
   border-color: var(--accent-color);
 }
 
-
-/* ==========================================================
-   BOTÃO DE TEMA
-   ========================================================== */
-
 .game__button--theme {
   margin-bottom: 1.5rem;
-
   background-color: var(--bg-card);
-
   color: var(--accent-color);
-
   border-color: var(--border-color);
-
   box-shadow: 0 3px 8px var(--shadow-color);
 }
 
 
 .game__button--theme:hover {
   background-color: var(--accent-color);
-
   color: #ffffff;
-
   border-color: var(--accent-color);
 }
-
-
-/* ==========================================================
-   TEMA ESCURO
-   ========================================================== */
 
 .game--dark {
   --bg-primary: #020617;

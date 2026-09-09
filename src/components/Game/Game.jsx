@@ -35,6 +35,7 @@ function Game() {
     const [proximo, setProximo] = useState(true)
     const [placarX, setPlacarX] = useState(0)
     const [placarO, setPlacarO] = useState(0)
+    const [vencedorPartida, setVencedorPartida] = useState('')
     const [tema, setTema] = useState(() => {
         const temaSalvo = localStorage.getItem('tema')
         return temaSalvo ? temaSalvo : 'light'
@@ -47,15 +48,17 @@ function Game() {
         localStorage.setItem('tema', novoTema)
     }
 
-
+    // vencedor apenas da rodada, e nãop da partida
     const vencedor = definirVencedor(square)
     // const vencedorJogo = placarX === 3 ? 'X' : placarO === 3 ? 'O' : null
     // Usando every para verificar se todas as posicoes do square foi preenchida
     const empate = square.every((posicao) => posicao !== '') && !vencedor
     let status;
 
-    if (vencedor) {
-        status = `Vencedor: ${vencedor}`
+    if (vencedorPartida) {
+        status = `🏆 Jogador ${vencedorPartida} venceu o melhor de 5!`
+    } else if (vencedor) {
+        status = `Vencedor da rodada: ${vencedor}`
     } else if (empate) {
         status = 'Empate. Deu velha!'
     } else {
@@ -63,27 +66,31 @@ function Game() {
     }
 
     // Preenche os quadrados do tabuleiro com '' e reseta todas as jogadas
-    function reiniciarPartida() {
+    function reiniciarRodada() {
         setSquare(Array(9).fill(''))
+        setProximo(true)
     }
 
     // Define o placar de ambos os jogadores para 0
     function resetarPlacar() {
         setPlacarX(0)
         setPlacarO(0)
+        setVencedorPartida('')
+        setSquare(Array(9).fill(''))
+        setProximo(true)
     }
 
 
     function Clicar(i) {
 
         // Verifica se o quadrado tem algo diferente de nulo e se ja existe um vencedor
-        if (square[i] !== '' || vencedor) {
+        if (square[i] !== '' || vencedor || vencedorPartida) {
             return // caso verdadeiro, interrompe a execução
         }
 
         const proximoMove = square.slice()
 
-
+        // Verifica qual é o próximo jogador
         if (proximo) {
             proximoMove[i] = 'X'
         } else {
@@ -91,12 +98,28 @@ function Game() {
         }
         setSquare(proximoMove)
 
+
         const novoVencedor = definirVencedor(proximoMove)
 
         if (novoVencedor === 'X') {
-            setPlacarX(placarX + 1)
+
+            const novoPlacarX = placarX + 1
+            setPlacarX(novoPlacarX)
+
+            // X chegou a 3 vitórias
+            if (novoPlacarX === 3) {
+                setVencedorPartida('X')
+            }
+
         } else if (novoVencedor === 'O') {
-            setPlacarO(placarO + 1)
+
+            const novoPlacarO = placarO + 1
+            setPlacarO(novoPlacarO)
+
+            // O chegou a 3 vitórias
+            if (novoPlacarO === 3) {
+                setVencedorPartida('O')
+            }
         }
 
         setProximo(!proximo)
@@ -104,32 +127,27 @@ function Game() {
 
     // Aplicamos a classe base 'game' E a classe modificadora 'game--dark' se o tema for 'dark'
     return (
-        <main className={`${styles.game} ${tema === 'dark' ? styles['game--dark'] : ''}`}>
-            <h2 className={styles.game__title}>Jogo da Velha</h2>
-            {/* <h3 className={styles.game__subtitle}>Melhor de 5 - O jogador que ganhar 3 rodadas primeiro, vence o jogo!</h3> */}
+    <main className={`${styles.game} ${tema === 'dark' ? styles['game--dark'] : ''}`}>
+        <header className={styles.game__header}>
+            <h1 className={styles.game__title}>Jogo da Velha</h1>
+            <p className={styles.game__subtitle}>Melhor de 5</p>
+        </header>
 
-            {/* Botão que dispara a função alternarTema */}
-            <button
-                className={`${styles.game__button} ${styles['game__button--theme']}`}
-                onClick={alternarTema}
-            >
-                Modo {tema === 'light' ? 'Escuro' : 'Claro'}
-            </button>
+        <p className={styles.game__status}>Jogador X: {placarX} || Jogador O: {placarO}</p>
 
-            <p className={styles.game__status}>
-                Jogador X: {placarX} | Jogador O: {placarO}
-            </p>
+        <section className={styles.game__status}><p>{status}</p></section>
 
-            <p className={styles.game__status}>
-                {status}
-            </p>
+        <section className={styles.game__board}><Board square={square} aoClicarSquare={Clicar} /></section>
 
-            <button className={`${styles.game__button} ${styles['game__button--secondary']}`} onClick={resetarPlacar}>Resetar Placar</button> 
-            <Board square={square} aoClicarSquare={Clicar}/>
-            <button className={`${styles.game__button} ${styles['game__button--secondary']}`} onClick={reiniciarPartida}>Reiniciar Partida</button>
+        {(vencedor || empate) && !vencedorPartida && <button className={`${styles.game__button} ${styles['game__button--primary']}`} onClick={reiniciarRodada}>Próxima Rodada</button>}
+        {vencedorPartida && <button className={`${styles.game__button} ${styles['game__button--primary']}`} onClick={resetarPlacar}>Nova Partida</button>}
+        {!vencedorPartida && <button className={`${styles.game__button} ${styles['game__button--secondary']}`} onClick={resetarPlacar}>Resetar Placar</button>}
 
-        </main>
-    );
+        <footer className={styles.game__settings}>
+            <button className={`${styles.game__button} ${styles['game__button--theme']}`} onClick={alternarTema}>{tema === 'light' ? '🌙 Modo Escuro' : '☀️ Modo Claro'}</button>
+        </footer>
+    </main>
+);
 
 }
 
