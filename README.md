@@ -24,7 +24,7 @@ Este projeto consiste na refatoração e modernização do clássico **Jogo da V
 
 Siga os passos abaixo para rodar o projeto em sua máquina:
 
-### Pró-requisitos
+### Pré-requisitos
 Certifique-se de ter o **Node.js** (versão 18 ou superior) e o **Git** instalados.
 
 ### Passo a Passo
