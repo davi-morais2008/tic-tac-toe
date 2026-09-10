@@ -17,7 +17,6 @@ Este projeto consiste na refatoração e modernização do clássico **Jogo da V
 - **[Vite](https://vitejs.dev/):** Ferramenta de build rápida e moderna para o ambiente de desenvolvimento.
 - **[CSS Modules](https://github.com/css-modules/css-modules):** Escopamento local de estilos para evitar conflitos de classes.
 - **[Metodologia BEM](https://getbem.com/):** Padronização na nomenclatura de classes CSS (`bloco__elemento--modificador`).
-- **[Bootstrap](https://getbootstrap.com/):** Auxílio no layout responsivo e utilitários de interface.
 
 ---
 
@@ -33,3 +32,15 @@ Certifique-se de ter o **Node.js** (versão 18 ou superior) e o **Git** instalad
 1. **Clonar o repositório:**
    ```bash
    git clone [https://github.com/davi-morais2008/tic-tac-toe.git]
+
+2. **Entar na pasta do projeto:**
+   ```bash
+   cd tic-tac-toe
+
+3. **Instalar as dependências:**
+   ```bash
+   npm install
+
+4. **Executar o servidor de desenvolvimento:**
+   ```bash
+   npm run dev

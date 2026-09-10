@@ -71,7 +71,7 @@ function Game() {
         setProximo(true)
     }
 
-    // Define o placar de ambos os jogadores para 0
+    // Define o placar de ambos os jogadores para 0, limpa o tabuleiro e define o jogador "X" como proximo jogador
     function resetarPlacar() {
         setPlacarX(0)
         setPlacarO(0)

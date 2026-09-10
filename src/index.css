@@ -6,10 +6,8 @@ body {
 }
 
 :root{
-      /* ==========================================================
-     VARIÁVEIS - TEMA CLARO
-     ========================================================== */
 
+  /* variaveis tema claro */
   --bg-primary: #eff6ff;
   --bg-secondary: #dbeafe;
   --bg-tertiary: #93c5fd;
